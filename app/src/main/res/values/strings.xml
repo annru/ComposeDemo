@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ComposeDemo</string>
+    <string name="title_activity_main_frame">MainFrame</string>
+    <string name="title_activity_study_screen">StudyScreen</string>
+</resources>
