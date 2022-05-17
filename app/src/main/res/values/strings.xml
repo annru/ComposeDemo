@@ -2,4 +2,12 @@
     <string name="app_name">ComposeDemo</string>
     <string name="title_activity_main_frame">MainFrame</string>
     <string name="title_activity_study_screen">StudyScreen</string>
+
+
+  <plurals name="fruit_title">
+      <item quantity="one">fruit</item>
+      <item quantity="other">fruits</item>
+  </plurals>
+
+
 </resources>

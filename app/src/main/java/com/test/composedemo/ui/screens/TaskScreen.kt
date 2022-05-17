@@ -7,7 +7,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -23,11 +23,16 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.test.composedemo.ui.components.ChartView
 import com.test.composedemo.ui.components.CircleRing
+import com.test.composedemo.ui.components.DialogCommon
 import com.test.composedemo.ui.viewmodel.TaskViewModel
 
 
 @Composable
 fun TaskScreen(taskVM: TaskViewModel = viewModel()) {
+
+    var showing by remember {
+        mutableStateOf(false)
+    }
 
 
     var boxWidth: Int
@@ -163,10 +168,18 @@ fun TaskScreen(taskVM: TaskViewModel = viewModel()) {
 
                     //
                     Button(onClick = {
-                        taskVM.updatePointOfYear("9000")
+//                        taskVM.updatePointOfYear("9000")
 
+                        if (!showing) {
+
+//                                DialogCommon {
+//                                    showing = !showing
+//                                }
+
+
+                        }
                     }) {
-                        Text(text = "测试按钮")
+                        Text(text = "弹出对话卡")
                     }
 
                     TextButton(onClick = { taskVM.updatePointOfYear("7000") }) {
@@ -183,3 +196,4 @@ fun TaskScreen(taskVM: TaskViewModel = viewModel()) {
 fun TaskScreenPreview() {
     TaskScreen()
 }
+

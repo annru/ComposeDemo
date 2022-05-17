@@ -143,7 +143,7 @@ fun LoginScreen() {
                     },
                     label = {
                         Text(text = "密码", fontSize = 14.sp, color = Color.White)
-                    },  
+                    },
                     trailingIcon = {
                         Icon(
                             imageVector = if (showPassword) Icons.Default.Visibility else Icons.Default.VisibilityOff,
