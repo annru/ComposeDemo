@@ -18,3 +18,5 @@ local.properties
 /.idea/misc.xml
 /.idea/compiler.xml
 /.idea/vcs.xml
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/.gitignore

@@ -1,5 +1,6 @@
 package com.anzhixiang.sunflower.widget
 
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -57,6 +58,7 @@ fun LazyColumnTestWithIndex() {
 }
 
 //仿微信聊天界面
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun LazyColumnTestChat() {
     val chatList = arrayListOf<Chat>()
@@ -65,29 +67,42 @@ fun LazyColumnTestChat() {
         add(Chat("你好，很高兴认识你"))
         add(Chat("你是在上海吗", true))
         add(Chat("对啊，在上海，你呢"))
+        add(Chat("对啊，在上海，你呢"))
+        add(Chat("对啊，在上海，你呢"))
+        add(Chat("对啊，在上海，你呢"))
+        add(Chat("对啊，在上海，你呢"))
+        add(Chat("对啊，在上海，你呢"))
+        add(Chat("对啊，在上海，你呢"))
+        add(Chat("对啊，在上海，你呢", true))
+        add(Chat("对啊，在上海，你呢"))
+        add(Chat("对啊，在上海，你呢"))
+        add(Chat("对啊，在上海，你呢"))
+        add(Chat("对啊，在上海，你呢", true))
+        add(Chat("对啊，在上海，你呢", true))
+        add(Chat("对啊，在上海，你呢", true))
+        add(Chat("对啊，在上海，你呢", true))
+        add(Chat("对啊，在上海，你呢", true))
+        add(Chat("对啊，在上海，你呢", true))
     }
     LazyColumn(modifier = Modifier.fillMaxWidth()) {
-
         items(chatList) { chat ->
-            if (chat.isLeft) {
-
-
-                CommonColumn(color = Color.White, alignment = Alignment.Start, msg = chat.msg)
-            } else {
-//                Column(modifier = Modifier.fillMaxWidth()) {
-//                    Spacer(modifier = Modifier.padding(5.dp))
-//                    Text(
-//                        modifier = Modifier
-//                            .background(Color.Blue)
-//                            .padding(8.dp)
-//                            .align(Alignment.End),
-//                        text = chat.msg,
-//                        textAlign = TextAlign.End
-//                    )
-//                }
-
-                CommonColumn(color = Color.Blue, alignment = Alignment.End, msg = chat.msg)
-            }
+            val color = if (chat.isLeft) Color.White else Color.Green
+            val alignment = if (chat.isLeft) Alignment.Start else Alignment.End
+            CommonColumn(color = color, alignment = alignment, msg = chat.msg)
+        }
+        stickyHeader {
+            Text(
+                text = "我是粘性标题啊", modifier = Modifier
+                    .background(Color.Yellow)
+                    .padding(8.dp)
+                    .fillMaxWidth(),
+                textAlign = TextAlign.Center
+            )
+        }
+        items(chatList) { chat ->
+            val color = if (chat.isLeft) Color.White else Color.Green
+            val alignment = if (chat.isLeft) Alignment.Start else Alignment.End
+            CommonColumn(color = color, alignment = alignment, msg = chat.msg)
         }
     }
 }
